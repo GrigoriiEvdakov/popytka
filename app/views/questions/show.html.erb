@@ -1,0 +1,35 @@
+<h1> <%= @question.title %> </h1>
+
+<p>
+  <time datetime="<%= @question.formatted_created_at %>">
+    <%= @question.formatted_created_at %>
+  </time> 
+<br>
+<div>
+  <%= sanitize @question.body %>
+</div>
+</p>
+
+<%= render 'answers/form' %>
+
+<%== pagy_bootstrap_nav @pagy %>
+
+<h2> Answers </h2>
+<% @answers.each do |answer| %>
+ 
+
+  
+  <time datetime="<%= answer.formatted_created_at %>">
+    <%= answer.formatted_created_at %>
+  </time>
+  
+  <p>
+  <%= sanitize answer.body %>
+  </p>
+
+  <%= link_to "Edit", edit_question_answer_path(@question, answer) %>
+  <%= link_to "Delete", question_answer_path(@question, answer), 
+  data: {"turbo-method": :delete, confirm: "Are you sure?"} %>
+<% end %> 
+
+<%== pagy_bootstrap_nav @pagy %>
