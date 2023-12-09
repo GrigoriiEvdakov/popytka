@@ -1,0 +1,10 @@
+<% provide :page_title, 'Log In'%>
+<%currently_at 'Log In'%>
+
+<%= form_with url: session_path do  |f| %>
+<%= f.label :email %>
+<%= f.email_field :email, placeholder:'E-mail'%>
+<%= f.label :password%>
+<%= f.password_field :password%>
+<%= f.submit "Sing In!"%>
+<% end %>    

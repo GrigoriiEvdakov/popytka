@@ -18,6 +18,11 @@
     <%= f.label :password_confirmation %>    
     <%= f.password_field :password_confirmation %>
     </div>  
-   
-    <%= f.submit "Register!" %>
+    <% unless @user.new_record? %>
+    <div>
+    <%= f.label :old_password %>    
+    <%= f.password_field :old_password %>
+    </div> 
+   <% end %>
+    <%= f.submit (@user.new_record? ? "Register!" : "Save") %>
 <%end%>  
