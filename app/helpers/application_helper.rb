@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  include Pagy::Frontend 
+  include Pagy::Frontend
   def pagination(obj)
-    raw(pagy_bootstrap_nav(obj)) if obj.pages > 1   
+    raw(pagy_bootstrap_nav(obj)) if obj.pages > 1
   end
-  def full_title(page_title = "")
-    base_title = "AskIt"
+
+  def full_title(page_title = '')
+    base_title = 'AskIt'
     if base_title.present?
       "#{page_title} | #{base_title}"
     else
       base_title
-    end            
-  end  
+    end
+  end
 end

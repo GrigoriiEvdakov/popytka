@@ -1,0 +1,28 @@
+<% provide :page_title, 'Admin Users' %>
+<% currently_at 'Users' %>
+<div>
+<%= link_to 'Download zipped XLSX', admin_users_path(format: :zip) %>
+</div>
+
+<%= pagination @pagy %>
+
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Created at</th>
+    <th scope="col">Updated at</th>
+  </tr>
+</thead>
+  <tbody>
+    <% render @users %>
+  </tbody>  
+<%= pagination @pagy %>
+
+<h2 Upload users from XLSX</h2>
+
+<%= form_with url: admin_users_path do |f| %>
+  <%= f.file_field :archive %> 
+  <%= f.submit 'Upload!' %>
+<% end %>   

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   include Recoverable
   include Rememberable
@@ -67,5 +69,4 @@ class User < ApplicationRecord
   def password_presence
     errors.add(:password, :blank) if password_digest.blank?
   end
-end 
 end

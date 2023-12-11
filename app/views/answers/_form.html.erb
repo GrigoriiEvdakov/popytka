@@ -1,5 +1,5 @@
 <%= form_with model: [@question, @answer] do |f| %>
   <%= f.label :body %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, required: true %>
   <%= f.submit "Submit answer!"%>
 <% end %>
